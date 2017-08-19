@@ -1,6 +1,8 @@
-﻿using FactoryMethod.Empresas;
-using FactoryMethod.Passagens;
-using Singleton;
+﻿//using FactoryMethod.Empresas;
+//using FactoryMethod.Passagens;
+using AbstractFactory.Empresa;
+using AbstractFactory.Passagens;
+//using Singleton;
 using System;
 
 namespace ConsoleUI
@@ -24,15 +26,32 @@ namespace ConsoleUI
 
             #endregion
 
-            #region FactoryMethod
+            #region [FactoryMethod]
 
-            //Empresas de ônibus
-            Empresa viacaoABCLocal = new EmpresaOnibusUrbano();
-            Empresa viacaoXYZInter = new EmpresaOnibusInterestadual();
+            ////Empresas de ônibus
+            //Empresa viacaoABCLocal = new EmpresaOnibusUrbano();
+            //Empresa viacaoXYZInter = new EmpresaOnibusInterestadual();
+
+            ////Emite passagens
+            //Passagem pUrbano = viacaoABCLocal.emitePassagem("Floramar", "Centro", new DateTime(2017, 8, 10, 11, 0, 0));
+            //Passagem pInterestadual = viacaoXYZInter.emitePassagem("Minas Gerais", "Rio de Janeiro", new DateTime(2017, 8, 20, 8, 30, 0));
+
+            ////Exibe detalhes da passagem
+            //pUrbano.exibeDetalhes();
+            //pInterestadual.exibeDetalhes();
+
+            //Console.ReadLine();
+
+            #endregion
+
+            #region [AbstractFactory]
+
+            //Empresa de ônibus
+            var viacaoXYZ = new EmpresaOnibus();
 
             //Emite passagens
-            Passagem pUrbano = viacaoABCLocal.emitePassagem("Floramar", "Centro", new DateTime(2017, 8, 10, 11, 0, 0));
-            Passagem pInterestadual = viacaoXYZInter.emitePassagem("Minas Gerais", "Rio de Janeiro", new DateTime(2017, 8, 20, 8, 30, 0));
+            PassagemOnibusUrbano pUrbano = viacaoXYZ.emitePassagemOnibusUrbano("Floramar", "Centro", new DateTime(2017, 8, 10, 11, 0, 0));
+            PassagemOnibusInterestadual pInterestadual = viacaoXYZ.emitePassagemOnibusInterestadual("Minas Gerais", "Rio de Janeiro", new DateTime(2017, 8, 20, 8, 30, 0));
 
             //Exibe detalhes da passagem
             pUrbano.exibeDetalhes();
