@@ -14,7 +14,7 @@ namespace ConsoleUI
 
             #region [Singleton]
 
-            //var cadeira1 = Cadeira.getInstance();
+            //var cadeira1 = Cadeira.getInstance(); 
             //cadeira1.Quantidade = 1;
 
             //var cadeira2 = Cadeira.getInstance();
